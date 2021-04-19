@@ -58,14 +58,14 @@ export default function Dashboard(props) {
         const socket = openSocket('http://localhost:5000')
         socket.on('datas', data => {
             if(data.action === 'messages'){
-                setPedss(data.message)
+                setPeds(data.message)
                 console.log(data.message)
             }
             else if(data.action === 'messages2'){
                 setBikes(data.message)
                 console.log(data.message)
             }
-            else{
+            else  if(data.action === 'messages3'){
                 setCars(data.message)
                 console.log(data.message)
             }

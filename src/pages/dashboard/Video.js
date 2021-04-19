@@ -100,7 +100,7 @@ function Video(props) {
                             <form className={classes.container} noValidate>
                                 <TextField
                                     id="date"
-                                    label="Birthday"
+                                    label="Set Date"
                                     type="date"
                                     defaultValue="2017-05-24"
                                     className={classes.textField}
