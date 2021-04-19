@@ -32,14 +32,14 @@ function Counting(props) {
 
     const classes = useStyles()
 
-    useEffect(()=>{
-      const socket = openSocket('http://localhost:5000')
-      socket.on('datas', data => {
-          if(data.action === 'messages'){
+    // useEffect(()=>{
+    //   const socket = openSocket('http://localhost:5000')
+    //   socket.on('datas', data => {
+    //       if(data.action === 'messages'){
 
-          }
-      })
-    })
+    //       }
+    //   })
+    // })
 
     return (
         <div className = {classes.root}>
