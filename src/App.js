@@ -28,10 +28,10 @@ const theme = createMuiTheme({
     secondary: {
       main: '#bdbec4'
     },
-    tertiary: {
-      main: '#fecb2e',
+    error: {
+      main: '#FECB2E',
       contrastText: '#000',
-    }
+    },
   }
 })
 

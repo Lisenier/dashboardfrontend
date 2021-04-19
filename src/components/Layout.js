@@ -11,6 +11,13 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import LanguageIcon from '@material-ui/icons/Language';
+import DesktopMacIcon from '@material-ui/icons/DesktopMac';
+import VerticalSplitIcon from '@material-ui/icons/VerticalSplit';
+import PublicIcon from '@material-ui/icons/Public';
+import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
+import SettingsIcon from '@material-ui/icons/Settings';
+import VideoLabelIcon from '@material-ui/icons/VideoLabel';
+import BarChartIcon from '@material-ui/icons/BarChart';
 
 const drawerWidth = 240
 
@@ -43,7 +50,8 @@ const useStyles = makeStyles((theme) => {
         },
         toolbar: theme.mixins.toolbar,
         blank:{
-            flexGrow: 1
+            // flexGrow: '1',
+            marginLeft: '62%'
         },
         badges: {
             color: theme.palette.tertiary,
@@ -62,31 +70,33 @@ function Layout({children}) {
     const menuItems = [
         {
             text: 'Dashboard',
-            path: '/'
+            path: '/',
+            icon: <DesktopMacIcon />
         },
         {
             text: 'Counting',
-            path: '/counting'
+            path: '/counting',
+            icon: <VerticalSplitIcon />
         },
         {
             text: 'Environment',
-            path: '/environment'
+            path: '/environment',
+            icon: <BarChartIcon />
         },
         {
             text: 'Connectivity',
-            path: '/connectivity'
+            path: '/connectivity',
+            icon: <PublicIcon />
         },
         {
             text: 'Safety',
-            path: '/safety'
+            path: '/safety',
+            icon: <VerifiedUserIcon />
         },
         {
             text: 'Video',
-            path: '/video'
-        },
-        {
-            text: 'Settings',
-            path: '/settings'
+            path: '/video',
+            icon: <VideoLabelIcon />
         },
     ]
 
@@ -138,9 +148,24 @@ function Layout({children}) {
                          onClick = {() => history.push(item.path)}
                          className = {location.pathname == item.path ? classes.active : null}
                         >
+                                <ListItemIcon>
+                                    {item.icon}
+                                </ListItemIcon>
                             <ListItemText primary={item.text} />
                         </ListItem>
                     ))}
+                        <Divider></Divider>
+                        <ListItem
+                         button
+                         key={'Settings'}
+                         onClick = {() => history.push('/settings')}
+                         className = {location.pathname == '/settings' ? classes.active : null}
+                        >
+                                <ListItemIcon>
+                                    <SettingsIcon />
+                                </ListItemIcon>
+                            <ListItemText primary={'Settings'} />
+                        </ListItem>
                 </List>
             </Drawer>
             <div>
