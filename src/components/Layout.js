@@ -19,7 +19,7 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import VideoLabelIcon from '@material-ui/icons/VideoLabel';
 import BarChartIcon from '@material-ui/icons/BarChart';
 
-const drawerWidth = 240
+const drawerWidth = 350
 
 const useStyles = makeStyles((theme) => {
     return {
