@@ -1,9 +1,10 @@
-import { Button, makeStyles, TextField, Typography } from '@material-ui/core';
+import { Button, FormControlLabel, makeStyles, TextField, Typography } from '@material-ui/core';
 import React from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { UserContext } from '../App';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const useStyles = makeStyles((theme) => {
     return {
@@ -37,11 +38,29 @@ const useStyles = makeStyles((theme) => {
         links: {
             display: 'flex',
             flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            marginLeft: '4rem',
         },
         buttons: {
             display: 'flex',
             flexDirection: 'row',
+            justifyContent: 'space-between',
+            width: '100%',
+            justifyContent: 'space-evenly',
+            marginLeft: '4rem',
         },
+        button: {
+            padding: '1rem 3rem',
+            backgroundColor: '#43425D',
+            color: 'white',
+        },
+        button2: {
+            padding: '1rem 3rem',
+            backgroundColor: 'white',
+            color: 'black',
+            textDecoration: 'none',
+        }
     }
 })
 
@@ -88,18 +107,25 @@ function Login(props) {
         <div className = {classes.root}>
             <div className = {classes.imagepage} />
             <div className = {classes.formpage}>
-                <img src="assets/logo.png" className = {classes.imagelogo} />
-                <Typography>Welcome Back! Please login to your account.</Typography>
-                <TextField fullWidth autofocus margin="normal" id="standard-basic" onChange={(e) =>{setEmail(e.target.value)}} value={email} label="Email" />
-                <TextField fullWidth autofocus margin="normal" id="standard-basic" onChange={(e) =>{setPassword(e.target.value)}} value={password} type="password" label="Password" />
+                <img src="assets/logo.png" style={{margin: '2rem'}} className = {classes.imagelogo} />
+                <Typography style={{color: '#BDBEC4'}}>Welcome Back! Please login to your account.</Typography>
+                <div >
+                <TextField style={{margin: '2rem',}} fullWidth autofocus  id="standard-basic" onChange={(e) =>{setEmail(e.target.value)}} value={email} label="Email" />
+                <TextField style={{margin: '2rem'}} fullWidth autofocus  id="standard-basic" onChange={(e) =>{setPassword(e.target.value)}} value={password} type="password" label="Password" />
+                </div>
                 <div className= {classes.links}>
-                    <Link to='/forgot'><Typography>Forgot Password</Typography></Link>
+                    <FormControlLabel
+                    control={<Checkbox value="remember" color="primary" />}
+                    label="Remember me"
+                    style={{marginRight:'10rem'}}
+                    />
+                    <Link to='/forgot' style={{textDecoration: 'none', marginLeft: '4rem'}} ><Typography>Forgot Password</Typography></Link>
                 </div>
                 <div className={classes.buttons}>
-                    <Button variant="contained" color="secondary" onClick={()=>Login()}>
+                    <Button className={classes.button} variant="contained" color="secondary" onClick={()=>Login()}>
                         Login
                     </Button>
-                    <Link to="/signup"><Button variant="contained" color="Primary">
+                    <Link to="/signup" style={{textDecoration: 'none'}}><Button className={classes.button2} variant="contained" color="Primary">
                         Signup
                     </Button></Link>
                 </div>

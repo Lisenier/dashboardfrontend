@@ -55,7 +55,7 @@ export default function Dashboard(props) {
     const [cotwo,setCotwo] = useState("60");
 
     useEffect(()=>{
-        const socket = openSocket('http://localhost:5000')
+        const socket = openSocket('http://localhost:5000', {transports: ['websocket', 'polling', 'flashsocket']})
         socket.on('datas', data => {
             if(data.action === 'messages'){
                 setPeds(data.message)

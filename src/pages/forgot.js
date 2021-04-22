@@ -49,10 +49,10 @@ function Forgot(props) {
             <div className = {classes.imagepage} />
             <div className = {classes.formpage}>
                 <img src="assets/logo.png" className = {classes.imagelogo} />
-                <Typography>Enter your email and we send you a password reset link.</Typography>
-                <TextField fullWidth autofocus margin="normal" id="standard-basic" onChange={(e) =>{setEmail(e.target.value)}} value={email} label="Email" />
+                <Typography style={{color: '#BDBEC4'}}>Enter your email and we send you a password reset link.</Typography>
+                <TextField fullWidth autofocus style={{margin:'2rem 4rem', width: '60%'}} id="standard-basic" onChange={(e) =>{setEmail(e.target.value)}} value={email} label="Email" />
                 <div className={classes.buttons}>
-                    <Button variant="contained" color="secondary">
+                    <Button style={{padding: '1rem 4rem',color: 'white', backgroundColor: '#43425D'}} variant="contained" color="secondary">
                         Send Request
                     </Button>
                 </div>

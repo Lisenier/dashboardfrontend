@@ -50,8 +50,8 @@ const useStyles = makeStyles((theme) => {
         },
         toolbar: theme.mixins.toolbar,
         blank:{
-            // flexGrow: '1',
-            marginLeft: '62%'
+            flexGrow: '1',
+            // marginLeft: '62%'
         },
         badges: {
             color: theme.palette.tertiary,

@@ -79,10 +79,10 @@ function Validate(props) {
             <div className = {classes.imagepage} />
             <div className = {classes.formpage}>
                 <img src="assets/logo.png" className = {classes.imagelogo} />
-                <Typography>Enter the access code to get access.</Typography>
-                <TextField fullWidth autofocus margin="normal" id="standard-basic" onChange={(e) =>{setCode(e.target.value)}} value={code} label="Access Code" />
+                <Typography style={{color: '#BDBEC4'}}>Enter the access code to get access.</Typography>
+                <TextField fullWidth autofocus style={{width: '60%'}} id="standard-basic" onChange={(e) =>{setCode(e.target.value)}} value={code} label="Access Code" />
                 <div className={classes.buttons}>
-                    <Button variant="contained" color="secondary" onClick={()=>Validation()}>
+                    <Button style={{padding: '1rem 5rem',color: 'white', backgroundColor: '#43425D',margin: '2rem'}} variant="contained" color="secondary" onClick={()=>Validation()}>
                         Get Access
                     </Button>
                 </div>
