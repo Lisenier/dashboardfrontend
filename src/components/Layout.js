@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => {
         },
         root: {
             display: 'flex',
-            backgroundColor: '#FAFAFA'
+            backgroundColor: '#848484'
         },
         logosidedrawer: {
             height: '85px',
