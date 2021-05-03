@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => {
         counting_head:{
             fontSize: '1.5rem',
             fontWeight: '300',
-            margin: '0 0 0 1rem'
+            margin: '0 0 0 4rem'
         },
         counting_body:{
             borderRadius: '2rem',
@@ -31,6 +31,15 @@ const useStyles = makeStyles((theme) => {
             display: 'flex',
             flexDirection: 'column'
         },
+        counting_heading: {
+            color: 'grey',
+            fontSize: '0.8rem',
+            textAlign: 'center',
+        },
+        counting_headings: {
+            fontWeight: '700',
+            fontSize: '1.5rem',
+        },
         environment: {
 
         },
@@ -38,8 +47,9 @@ const useStyles = makeStyles((theme) => {
 
         },
         badges: {
-            color: theme.palette.tertiary,
-            background: theme.palette.tertiary,
+            // color: theme.palette.tertiary,
+            // background: theme.palette.tertiary,
+            color: "white",
         }
     }
 })
@@ -83,30 +93,30 @@ export default function Dashboard(props) {
                         <Box style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly'}}>
                             <Box style={{display: 'flex', flexDirection: 'column'}}>
                                 <img src="assets/walk.png" width="49px" height="25px" />
-                                <Typography style={{textAlign: 'center'}} >{peds}</Typography>
+                                <Typography className={classes.counting_headings} style={{textAlign: 'center'}} >{peds}</Typography>
                             </Box>
                             <Box style={{display: 'flex', flexDirection: 'column'}}>
-                                <Typography>Pedestrians/hr</Typography>
+                                <Typography className={classes.counting_heading}>Pedestrians/hr</Typography>
                                 <img src="assets/barchart1.png" width="112px" height="30px" />
                             </Box>
                         </Box>
                         <Box style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly'}}>
                             <Box style={{display: 'flex', flexDirection: 'column'}}>
                                 <img src="assets/cycle.png" width="25px" height="25px" />
-                                <Typography style={{textAlign: 'center'}} >{bikes}</Typography>
+                                <Typography className={classes.counting_headings} style={{textAlign: 'center'}} >{bikes}</Typography>
                             </Box>
                             <Box style={{display: 'flex', flexDirection: 'column'}}>
-                                <Typography>Bikes/hr</Typography>
+                                <Typography className={classes.counting_heading}>Bikes/hr</Typography>
                                 <img src="assets/barchart2.png" width="112px" height="30px" />
                             </Box>
                         </Box>
                         <Box style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly'}}>
                             <Box style={{display: 'flex', flexDirection: 'column'}}>
                                 <img src="assets/cars.png" width="33px" height="25px" />
-                                <Typography style={{textAlign: 'center'}} >{cars}</Typography>
+                                <Typography className={classes.counting_headings} style={{textAlign: 'center'}} >{cars}</Typography>
                             </Box>
                             <Box style={{display: 'flex', flexDirection: 'column'}}>
-                                <Typography>Cars/hr</Typography>
+                                <Typography className={classes.counting_heading}>Cars/hr</Typography>
                                 <img src="assets/barchart3.png" width="112px" height="30px" />
                             </Box>
                         </Box>
@@ -117,21 +127,21 @@ export default function Dashboard(props) {
                     <Box style={{textAlign: 'center'}}>
                         <Box>
                             <IconButton >
-                                <Badge badgeContent={4} className={classes.badges}>
+                                <Badge badgeContent={4} className={classes.badges}  color="error">
                                     <img src="assets/walk.png" width="49px" height="25px"  color="secondary" />
                                 </Badge>
                             </IconButton> 
                         </Box>
                         <Box>
                             <IconButton >
-                                <Badge badgeContent={4} className={classes.badges}>
+                                <Badge badgeContent={4} className={classes.badges}  color="error">
                                     <img src="assets/cycle.png" width="25px" height="25px"  color="secondary" />
                                 </Badge>
                             </IconButton> 
                         </Box>
                         <Box>
                             <IconButton >
-                                <Badge badgeContent={4} className={classes.badges}>
+                                <Badge badgeContent={4} className={classes.badges}  color="error">
                                     <img src="assets/cars.png" width="33px" height="25px"  color="secondary" />
                                 </Badge>
                             </IconButton> 
@@ -146,30 +156,30 @@ export default function Dashboard(props) {
                         <Box style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly'}}>
                             <Box style={{display: 'flex', flexDirection: 'column'}}>
                                 <img src="assets/pm.png" width="47px" height="25px" />
-                                <Typography style={{textAlign: 'center'}} >{pm}</Typography>
+                                <Typography className={classes.counting_headings} style={{textAlign: 'center'}} >{pm}</Typography>
                             </Box>
                             <Box style={{display: 'flex', flexDirection: 'column'}}>
-                                <Typography>PM2.5/hr</Typography>
+                                <Typography className={classes.counting_heading}>PM2.5/hr</Typography>
                                 <img src="assets/barchart4.png" width="112px" height="30px" />
                             </Box>
                         </Box>
                         <Box style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly'}}>
                             <Box style={{display: 'flex', flexDirection: 'column'}}>
                                 <img src="assets/cotwo.png" width="25px" height="25px" />
-                                <Typography style={{textAlign: 'center'}} >{ppm}</Typography>
+                                <Typography className={classes.counting_headings} style={{textAlign: 'center'}} >{ppm}</Typography>
                             </Box>
                             <Box style={{display: 'flex', flexDirection: 'column'}}>
-                                <Typography>ppm/hr</Typography>
+                                <Typography className={classes.counting_heading}>ppm/hr</Typography>
                                 <img src="assets/barchart5.png" width="112px" height="30px" />
                             </Box>
                         </Box>
                         <Box style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly'}}>
                             <Box style={{display: 'flex', flexDirection: 'column'}}>
                                 <img src="assets/temp.png" width="25px" height="25px" />
-                                <Typography style={{textAlign: 'center'}} >{cotwo}</Typography>
+                                <Typography className={classes.counting_headings} style={{textAlign: 'center'}} >{cotwo}</Typography>
                             </Box>
                             <Box style={{display: 'flex', flexDirection: 'column'}}>
-                                <Typography>°C/hr</Typography>
+                                <Typography className={classes.counting_heading}>°C/hr</Typography>
                                 <img src="assets/barchart6.png" width="112px" height="30px" />
                             </Box>
                         </Box>
@@ -180,21 +190,21 @@ export default function Dashboard(props) {
                     <Box style={{textAlign: 'center'}}>
                         <Box>
                             <IconButton >
-                                <Badge badgeContent={4} className={classes.badges}>
+                                <Badge badgeContent={4} className={classes.badges}  color="error">
                                     <img src="assets/pm.png" width="47px" height="25px"  color="secondary" />
                                 </Badge>
                             </IconButton> 
                         </Box>
                         <Box>
                             <IconButton >
-                                <Badge badgeContent={4} className={classes.badges}>
+                                <Badge badgeContent={4} className={classes.badges}  color="error">
                                     <img src="assets/cotwo.png" width="25px" height="25px"  color="secondary" />
                                 </Badge>
                             </IconButton> 
                         </Box>
                         <Box>
                             <IconButton >
-                                <Badge badgeContent={4} className={classes.badges}>
+                                <Badge badgeContent={4} className={classes.badges}  color="error">
                                     <img src="assets/temp.png" width="25px" height="25px"  color="secondary" />
                                 </Badge>
                             </IconButton> 

@@ -24,7 +24,7 @@ const drawerWidth = 350
 const useStyles = makeStyles((theme) => {
     return {
         page: {
-            background: 'f9f9f9',
+            background: '#f4f4f4',
             width: '100%'
         },
         drawer: {
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => {
         },
         root: {
             display: 'flex',
-            backgroundColor: '#848484'
+            backgroundColor: '#f4f4f4'
         },
         logosidedrawer: {
             height: '85px',
@@ -54,8 +54,8 @@ const useStyles = makeStyles((theme) => {
             // marginLeft: '62%'
         },
         badges: {
-            color: theme.palette.tertiary,
-            background: theme.palette.tertiary,
+            // color: theme.palette.tertiary,
+            // background: theme.palette.tertiary,
         }
     }
 
@@ -122,7 +122,7 @@ function Layout({children}) {
                         <QuestionAnswerIcon/>
                     </IconButton>     
                     <IconButton >
-                        <Badge badgeContent={4} className={classes.badges}>
+                        <Badge badgeContent={4} className={classes.badges}  color="error">
                             <NotificationsIcon color="secondary" />
                         </Badge>
                     </IconButton>     

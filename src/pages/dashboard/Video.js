@@ -16,8 +16,9 @@ import {
 const useStyles = makeStyles((theme) => {
     return {
         root: {
-            background: '#FAFAFA',
+            background: '#f4f4f4',
             width: '100%',
+            height: '100vh',
             margin: '2rem',
         },
         counting: {
