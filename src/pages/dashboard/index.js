@@ -1,6 +1,5 @@
 import React,{useEffect, useState} from 'react';
 import openSocket from 'socket.io-client';
-import Drawer from '@material-ui/core/Drawer';
 import { Badge, IconButton, makeStyles, Typography } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Areachart from './components/areachart';
