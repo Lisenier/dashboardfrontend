@@ -259,7 +259,7 @@ interactive map so it is possible to see the the frequency and the locations of 
                             Bike Accident
                         </Typography>
                     </Box>
-                    <Typography style={{fontWeight: '400', fontSize: '1rem', color:'grey', width: '60rem'}}>
+                    <Typography style={{fontWeight: '400', fontSize: '1rem', color:'grey', width: '60rem',}}>
                     Detects bike accidents. Visualize location and time of the accident on a
 interactive map so it is possible to see the the frequency and the locations of bike accidents in the city. 
                     </Typography>
