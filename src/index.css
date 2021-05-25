@@ -11,3 +11,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.mapboxgl-canvas {
+  /* position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; */
+  border-radius: 2rem;
+}
+
+.map-container{
+  margin: 0 0.25rem;
+}
+
+.mapboxgl-control-container{
+  display: none;
+}

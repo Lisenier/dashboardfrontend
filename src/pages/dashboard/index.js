@@ -4,6 +4,12 @@ import { Badge, IconButton, makeStyles, Typography } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Areachart from './components/areachart';
 import Barchart from './components/barchart';
+import Map1 from './../../maps/map1';
+import Map2 from './../../maps/map2';
+import Map3 from './../../maps/map3';
+import Map4 from './../../maps/map4';
+import Map5 from './../../maps/map5';
+import Map6 from './../../maps/map6';
 
 const useStyles = makeStyles((theme) => {
     return {
@@ -120,9 +126,9 @@ export default function Dashboard(props) {
                             </Box>
                         </Box>
                     </Box>
-                    <Box className={classes.counting_body_content}><iframe title="Map 4"  style={{borderRadius:'2rem'}} src="https://seekopath.github.io" /></Box>
-                    <Box className={classes.counting_body_content}><iframe title="Map 5"  style={{borderRadius:'2rem'}} src="https://seekopath.github.io/map1.html" /></Box>
-                    <Box className={classes.counting_body_content}><iframe title="Map 6"  style={{borderRadius:'2rem'}} src="https://seekopath.github.io/map2.html" /></Box>
+                    <Box className={classes.counting_body_content}><Map1 /></Box>
+                    <Box className={classes.counting_body_content}><Map2 /></Box>
+                    <Box className={classes.counting_body_content}><Map3 /></Box>
                     <Box style={{textAlign: 'center'}}>
                         <Box>
                             <IconButton >
@@ -183,9 +189,9 @@ export default function Dashboard(props) {
                             </Box>
                         </Box>
                     </Box>
-                    <Box className={classes.counting_body_content}><iframe title="Map 1"  style={{borderRadius:'2rem'}} src="https://seekopath.github.io/map3.html" /></Box>
-                    <Box className={classes.counting_body_content}><iframe title="Map 2"  style={{borderRadius:'2rem'}} src="https://seekopath.github.io/map4.html" /></Box>
-                    <Box className={classes.counting_body_content}><iframe title="Map 3"  style={{borderRadius:'2rem'}} src="https://seekopath.github.io/map5.html" /></Box>
+                    <Box className={classes.counting_body_content}><Map4 /></Box>
+                    <Box className={classes.counting_body_content}><Map5 /></Box>
+                    <Box className={classes.counting_body_content}><Map6 /></Box>
                     <Box style={{textAlign: 'center'}}>
                         <Box>
                             <IconButton >
