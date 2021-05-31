@@ -19,6 +19,7 @@ import { useReducer } from 'react';
 import { initialState, reducer } from './reducers/userReducer';
 import { useEffect } from 'react';
 import { useContext } from 'react';
+import {SocketContext, socket} from './context/socket'
 
 const theme = createMuiTheme({
   palette: {
@@ -72,6 +73,7 @@ const Routing = ()=>{
 function App() {
   const [state,dispatch] = useReducer(reducer, initialState)
   return (
+    <SocketContext.Provider value={socket}>
     <UserContext.Provider value={{state,dispatch}}>
       <ThemeProvider theme={theme}>
         <Router>
@@ -79,6 +81,7 @@ function App() {
         </Router>
       </ThemeProvider>
     </UserContext.Provider>
+    </SocketContext.Provider>
   );
 }
 

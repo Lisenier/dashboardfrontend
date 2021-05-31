@@ -1,11 +1,28 @@
-import React,{useRef, useEffect} from 'react';
+import React,{useRef, useEffect, useContext, useCallback} from 'react';
 import mapboxgl from 'mapbox-gl';
+import io from 'socket.io-client';
+import {SocketContext} from '../context/socket'
+// var mqtt = require('mqtt')
+// var options ={
+//     name: "deployment-u4a179e5",
+//     username: "alasclient",
+//     password: "client",
+//     protocol: "mqtts"
+// }
+// var host = 'ws://' + 'u4a179e5.en.emqx.cloud' + ':8084';
+// var client = mqtt.connect(host,options)
+// client.on('connect', ()=>{
+//     console.log("cnnected")
+// })
 
 function Map1() {
+    const socket = useContext(SocketContext);
     const mapcontainerRef = useRef(null);
+    var mapdata = [];
+    var geojson;
     mapboxgl.accessToken = 'pk.eyJ1Ijoic2hhZHJ1bCIsImEiOiJja2dsNDV3ZHQwMmZzMnBxbjR3MHFmamZ4In0.JYzPwo6Yaf3H1lGDJVpV9Q';
     function createmap() {
-        const map = new mapboxgl.Map({
+        var map = new mapboxgl.Map({
             container: mapcontainerRef.current,
             style: 'mapbox://styles/mapbox/dark-v10',
             center: [-79.999732, 40.4374],
@@ -16,6 +33,11 @@ function Map1() {
                 type: 'geojson',
                 data: geojson
             });
+
+            socket.on('datas', data => {
+                console.log("map data has arrived")
+                map.getSource('trees').setData(geojson);
+            })
             map.addLayer({
                 id: 'trees-heat',
                 type: 'heatmap',
@@ -108,13 +130,13 @@ function Map1() {
             map.on('click', 'trees-point', function(e) {
                 new mapboxgl.Popup()
                   .setLngLat(e.features[0].geometry.coordinates)
-                  .setHTML('<b>DBH:</b> ' + e.features[0].properties.dbh)
+                  .setHTML('<b>DBH:</b> ' + e.features[0].geometry.coordinates)
                   .addTo(map);
             });
+            
         })
     }
-    const mapdata = [];
-    var geojson;
+
     function geojsondatafunction(){
         geojson = {
             type: 'FeatureCollection',
@@ -126,7 +148,6 @@ function Map1() {
         fetch("http://localhost:5000/api/map")
         .then(res=>res.json())
         .then(data=>{
-            // console.log("map data",data)
             data.data.forEach(dataobject => {
                 mapdata.push({
                     type: 'Feature',
@@ -144,7 +165,30 @@ function Map1() {
         });
         geojsondatafunction();
         createmap();
-    }, []);
+        socket.on('datas', data => {
+            if(data.action=='mapdata'){
+                console.log(data)
+                mapdata.push({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [data.message.longitude,data.message.latitude]
+                    },
+                    properties: {
+                        id: data.message.id,
+                        name: data.message.name,
+                        description: data.message.desc
+                    },
+                });
+                geojsondatafunction();
+            }
+        })
+        return () => {
+            socket.off('datas', data => {
+                console.log(data.message);
+            })
+        }
+    },[]);
 
     return (
         <div className="map-container" ref={mapcontainerRef}>

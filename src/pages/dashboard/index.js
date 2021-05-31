@@ -70,22 +70,25 @@ export default function Dashboard(props) {
     const [cotwo,setCotwo] = useState("60");
 
     useEffect(()=>{
-        const socket = openSocket('http://localhost:5000', {transports: ['websocket', 'polling', 'flashsocket']})
-        socket.on('datas', data => {
-            if(data.action === 'messages'){
-                setPeds(data.message)
-                console.log(data.message)
-            }
-            else if(data.action === 'messages2'){
-                setBikes(data.message)
-                console.log(data.message)
-            }
-            else  if(data.action === 'messages3'){
-                setCars(data.message)
-                console.log(data.message)
-            }
-        })
-    })
+        // const socket = openSocket('http://localhost:5000', {transports: ['websocket', 'polling', 'flashsocket']})
+        // socket.on('datas', data => {
+        //     if(data.action === 'messages'){
+        //         setPeds(data.message)
+        //         console.log(data.message)
+        //     }
+        //     else if(data.action === 'messages2'){
+        //         setBikes(data.message)
+        //         console.log(data.message)
+        //     }
+        //     else  if(data.action === 'messages3'){
+        //         setCars(data.message)
+        //         console.log(data.message)
+        //     }
+        //     else  if(data.action === 'mapdata'){
+        //         console.log(data.message)
+        //     }
+        // })
+    },[])
 
     const classes = useStyles()
 
